@@ -1,3 +1,5 @@
+/// <reference path="_references.ts"/>
+
 // IIFE -- Immediately Invoked Function Expression
 (function(){
     //these should also be enclosed, but var's poorly behaved
