@@ -40,6 +40,7 @@
         console.log("Starting Application...");
 
         stage = new createjs.Stage(canvas);
+        stage.enableMouseOver(20); // turn this on for buttons, very expensive
         createjs.Ticker.framerate = 60; // 60 FPS
         createjs.Ticker.on("tick", Update);
         Main();
@@ -47,6 +48,20 @@
 
     function Update():void {
         stage.update(); // redraws the stage
+    }
+
+    function clickMeButtonMouseOver():void {
+        clickMeButton.alpha = 0.7;
+    }
+
+    function clickMeButtonMouseOut():void {
+        clickMeButton.alpha = 1.0;
+    }
+
+    function clickMeButtonClick():void {
+        helloLabel.text = "Clicked!";
+        helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
+        helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
     }
 
     function Main():void {
@@ -63,6 +78,10 @@
         clickMeButton.x = 320;
         clickMeButton.y = 340;
         stage.addChild(clickMeButton);
+
+        clickMeButton.on("mouseover", clickMeButtonMouseOver);
+        clickMeButton.on("mouseout", clickMeButtonMouseOut);
+        clickMeButton.on("click", clickMeButtonClick);
     }
 
     window.onload = Init; // Init is event handler
