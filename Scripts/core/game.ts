@@ -69,7 +69,6 @@
 
         helloLabel = new objects.Label("Hello, World!", "40px",
          "Consolas", "#000000", 320, 240, true);
-
         stage.addChild(helloLabel);
 
         clickMeButton = new createjs.Bitmap("./Assets/images/clickMeButton.png");
